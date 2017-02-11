@@ -1,0 +1,78 @@
+include /etc/nginx/cache.conf;
+server {
+        listen 80;
+        server_name riskmarket-dev.sidenis.local;
+	return 301 https://$server_name$request_uri;
+}
+server {
+
+server_name riskmarket-dev.sidenis.local localhost;
+        listen 443;
+	charset utf-8;
+        ssl on;
+        ssl_session_timeout 4m;
+        ssl_protocols SSLv3 TLSv1;
+        #make sure you already have this certificate pair!
+        ssl_certificate /etc/nginx/ssl/server.crt;
+        ssl_certificate_key /etc/nginx/ssl/server.key;
+        ssl_session_cache shared:SSL:10m;
+        large_client_header_buffers 8 32k;
+	#MitM attack
+	add_header Strict-Transport-Security "max-age=31536000";
+	#for SEO html snapshots
+	if ($args ~ "_escaped_fragment_=(.*)") {
+		rewrite ^ /html-snapshots${uri}.html;
+		
+	}	
+	expires $expires;
+
+	location / {
+		root /var/www/riskmarket/dist/;
+		try_files $uri $uri/ /index.html =404;
+	}
+	
+	
+	location /internal
+	{
+	   include /etc/nginx/rm-proxy.conf;
+           proxy_pass http://tomcat:8080;
+           expires $expires;
+
+	}	
+#	location ~* ^.+\.(jpg|jpeg|gif|png|ico|css|xml|pdf|js|html)$
+#	{
+#		index index.html;
+#		root /var/www/riskmarket-dev/dist/;
+#		expires $expires;
+#	}
+
+#	location  / {
+#	   include /etc/nginx/rm-proxy.conf;
+#           proxy_pass http://tomcat:8080/;
+#	   expires $expires;
+#
+#	}
+         location /logs
+        {
+                alias /opt/tomcat/logs;
+                autoindex on;
+        }
+         location /resources
+        {
+                alias /opt/tomcat/resources;
+                autoindex on;
+        }
+
+        location /restart {
+               proxy_pass http://tomcat:8090/;
+               include /etc/nginx/proxy.conf;
+      
+	}	
+         location /policies
+        {
+                alias /opt/tomcat/policies;
+                autoindex on;
+        }
+
+}
+

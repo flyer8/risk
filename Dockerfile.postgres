@@ -1,0 +1,32 @@
+FROM ubuntu
+
+RUN apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys B97B0AFCAA1A47F044F244A07FCC7D46ACCC4CF8
+RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ precise-pgdg main" > /etc/apt/sources.list.d/pgdg.list
+RUN apt-get update && apt-get install -y python-software-properties software-properties-common postgresql-9.4 postgresql-client-9.4 postgresql-contrib-9.4
+
+USER postgres
+
+RUN rm -rf /var/lib/postgresql/9.4/main/*
+
+# /etc/postgresql/9.4/pg_hba.conf
+RUN echo "host all  all    0.0.0.0/0  md5"           >> /etc/postgresql/9.4/main/pg_hba.conf
+#RUN echo "host replication repuser 172.20.0.3/0 md5" >> /etc/postgresql/9.4/main/pg_hba.conf
+
+RUN echo "listen_addresses    = '*'"         >> /etc/postgresql/9.4/main/postgresql.conf
+RUN echo "wal_level           = hot_standby" >> /etc/postgresql/9.4/main/postgresql.conf
+RUN echo "max_wal_senders     = 3"           >> /etc/postgresql/9.4/main/postgresql.conf
+RUN echo "wal_keep_segments   = 8"           >> /etc/postgresql/9.4/main/postgresql.conf
+RUN echo "checkpoint_segments = 8"           >> /etc/postgresql/9.4/main/postgresql.conf
+RUN echo "log_statement       = all"         >> /etc/postgresql/9.4/main/postgresql.conf
+COPY dev_db.sql /tmp/
+RUN /usr/lib/postgresql/9.4/bin/initdb /var/lib/postgresql/9.4/main/
+RUN /etc/init.d/postgresql start && psql --command "CREATE USER repuser WITH SUPERUSER PASSWORD 'repuser';" &&\
+	psql --command "CREATE USER riskmarket WITH SUPERUSER PASSWORD 'riskmarket';" &&\
+	psql --command "ALTER ROLE postgres WITH PASSWORD 'postgres';" &&\
+#	psql --command "CREATE ROLE riskmarket WITH PASSWORD 'riskmarket';" &&\
+	psql --command "CREATE DATABASE riskmarket_dev OWNER riskmarket;" &&\
+	psql --command "GRANT ALL privileges ON DATABASE riskmarket_dev TO riskmarket;" &&\
+	psql riskmarket_dev < /tmp/dev_db.sql
+EXPOSE 5432
+VOLUME  ["/etc/postgresql", "/var/log/postgresql", "/var/lib/postgresql"]
+CMD bash -c "/usr/lib/postgresql/9.4/bin/postgres -D /var/lib/postgresql/9.4/main -c config_file=/etc/postgresql/9.4/main/postgresql.conf;"

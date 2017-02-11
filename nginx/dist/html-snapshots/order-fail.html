@@ -1,0 +1,253 @@
+<!doctype html><html lang="ru" data-ng-app="riskMarket" data-ng-class="{'iframe-app': appInFrameMode}" data-ng-strict-di="" class="ng-scope"><head><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+        <!-- Google Tag Manager -->
+
+        <script type="text/javascript" async="" id="topmailru-code" src="http://top-fwz1.mail.ru/js/code.js"></script><script type="text/javascript" async="" src="https://mc.yandex.ru/metrika/watch.js"></script><script async="" src="https://www.googletagmanager.com/gtm.js?id=GTM-MDZDVN"></script><script>
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-MDZDVN');
+        </script>
+
+        <!-- End Google Tag Manager -->
+
+        <meta charset="utf-8">
+
+        
+
+        <base href="/">
+
+        <title data-ng-bind="pageTitle" class="ng-binding">RiskMarket - сервис онлайн страхования и надёжного хранения полисов</title>
+
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=latin,cyrillic" rel="stylesheet" type="text/css">
+
+        <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+        <link rel="stylesheet" href="css/vendor-style.min.css">
+
+        <link rel="stylesheet" href="css/app-style.min.css">
+    </head>
+
+    <body data-popover-close="" data-ng-class="{
+            'iframe-app': appInFrameMode,
+
+            'iframe-app-ravta': currentPartner.id === 'RAVTA'
+        }" class="ng-isolate-scope">
+			<!-- Google Tag Manager (noscript) -->
+
+			<noscript>
+			  &lt;iframe
+			    src="https://www.googletagmanager.com/ns.html?id=GTM-MDZDVN"
+
+			    height="0"
+
+			    width="0"
+
+			    style="display:none;visibility:hidden"
+			  &gt;&lt;/iframe&gt;
+			</noscript>
+
+			<!-- End Google Tag Manager (noscript) -->
+
+      <div class="background-container" data-class-at="{'main-page-background': 'main-page'}" data-main-page-bg-random="" style="background-image: url(http://localhost:8042/img/min/background-collection/0.jpg);">
+        <!-- ngIf: !isPartnerLoginPage() && !appInFrameMode --><!-- ngInclude: 'modules/public-navigation/partials/public-navigation.html' --><div class="container-fluid container-wrapper ng-scope" data-ng-include="'modules/public-navigation/partials/public-navigation.html'" data-ng-if="!isPartnerLoginPage() &amp;&amp; !appInFrameMode"><nav class="navbar navbar-default main-nav navbar-fixed-top ng-scope" data-scrolled-nav="" data-class-at="{
+	'navbar-index': 'main-page',
+
+	'': 'order-prepare, order-payment, order-done, order-fail'
+	}" data-ng-controller="navigationController as vm"><div class="container-fluid container-content"><div class="navbar-header"><button tabindex="-1" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> <a tabindex="-1" href="/" class="navbar-brand logo"></a></div><div class="collapse navbar-collapse menu-list" id="bs-example-navbar-collapse-1"><div class="nav-default-content" data-ng-show="!isPartnerPage()"><ul class="nav navbar-nav"><li class="nav-item"><a tabindex="-1" class="link" data-class-at="{'static': 'main-page'}" href="/">Путешествия</a></li></ul><button tabindex="-1" data-ng-show="vm.currentUser.value == null" class="btn btn-nav btn-success" data-class-at="{'btn-login-main-page': 'main-page'}" data-ng-click="vm.requestAuthenticate()">Войти</button><ul class="nav navbar-nav navbar-right ng-hide" data-ng-show="vm.currentUser.value != null"><li class="dropdown"><a tabindex="-1" href="#" class="dropdown-toggle ng-binding" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="9.5 12 8 5" class="fill-svg"><path d="M13.5 14.6L10.7 12l-1.2 1.2 4 3.8 4-3.8-1.2-1.2-2.8 2.6z"></path></svg></a><ul class="dropdown-menu"><li><a tabindex="-1" class="link" href="/private-office"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 20" class="link-icon"><path d="M15.9 1c-.1-.2-.2-.4-.3-.5-.2-.1-.3-.3-.5-.3-.3-.2-.5-.2-.7-.2H1.6c-.2 0-.4 0-.6.1C.8.2.6.3.5.5.3.6.2.8.1 1c-.1.2-.1.4-.1.6v16.8c0 .2 0 .4.1.6.1.2.2.4.3.5.2.1.3.3.5.3.3.2.5.2.7.2h12.8c.2 0 .4 0 .6-.1.2-.1.4-.2.5-.3.1-.1.3-.3.3-.5.1-.2.1-.4.1-.6V1.6c.1-.2.1-.4 0-.6zM14 18H2V2h12v16zm-2-7H4v1h8v-1zm-4 5h4v-1H8v1zm4-3H4v1h8v-1zM7.9 9H8s.5-.3 1-.8c.6-.7 1-1.5 1-2.4V4H6V5.7c0 .9.3 1.7 1 2.4.5.6.9.9.9.9z"></path></svg> Полисы</a></li><li data-ng-show="vm.isAdmin()" class="ng-hide"><a tabindex="-1" class="link" href="/admin.monitor"><svg xmlns="http://www.w3.org/2000/svg" id="Layer_1" viewBox="0 0 20 18" class="link-icon"><style>.st0{fill:#b8c6c7}</style><path class="st0" d="M18 2.9c-1.1 0-2 .9-2 2.1 0 .5.2 1 .5 1.3l-2.1 2.4-1-4.7c.8-.3 1.4-1.1 1.4-2 0-1.2-.9-2.1-2-2.1s-2 .9-2 2.1c0 .7.4 1.4.9 1.8L10 8.6 8.3 3.9c.6-.4.9-1 .9-1.8C9.2.9 8.3 0 7.2 0s-2 .9-2 2.1c0 .9.6 1.7 1.4 2l-1 4.7-2.1-2.4C3.8 6 4 5.5 4 5c0-1.2-.9-2.1-2-2.1S0 3.9 0 5s.8 2 1.9 2.1l2.3 6.7h11.6l2.3-6.7c1.1 0 1.9-1 1.9-2.1s-.9-2.1-2-2.1zM4.2 18h11.6v-2.9H4.2V18z"></path></svg> АДМИН</a></li><li><a tabindex="-1" class="link" href="#" data-ng-click="vm.logout($event)"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 20" class="link-icon"><path d="M25.9 9.9c-1.6-1.5-3.2-3-4.8-4.4v3.1h-8.3v2.9h8.3v3.1c1.6-1.4 3.2-2.9 4.8-4.3 0-.2.2-.3 0-.4zM10 17.1c-3.9 0-7.1-3.2-7.1-7.1C2.8 6.1 6 2.9 10 2.9c2.3 0 4.4 1.1 5.7 2.9H19c-1.6-3.4-5-5.7-9-5.7C4.5 0 0 4.5 0 10s4.5 10 10 10c4 0 7.4-2.3 9-5.7h-3.3c-1.4 1.7-3.4 2.8-5.7 2.8z"></path></svg> Выйти</a></li></ul></li></ul></div><div class="nav-alt-content ng-hide" data-ng-show="isPartnerPage()"><a tabindex="-1" href="/" class="nav-inner-page-link" target="_blank"><span class="nav-inner-page-link-text">riskmarket.ru</span></a> <button tabindex="-1" class="btn btn-grey-transparent" data-ng-click="vm.logout($event)">Выйти</button></div></div></div></nav><script type="text/ng-template" id="login.html" class="ng-scope"><div data-handle-modal data-username="formData.userName" data-is-restore="isRestore" data-close-action="close($event)">
+		<div class="modal-header">
+			<a tabindex="-1"  class="action-close" href="#" data-ng-click="close($event)"></a>
+
+			<div class="modal-logo"></div>
+
+			<h2 class="modal-title" data-ng-hide="isRestore">
+
+				Вход<br />в личный кабинет
+			</h2>
+
+			<h2 class="modal-title restore" data-ng-show="isRestore">
+				Восстановление<br />пароля
+			</h2>
+		</div>
+
+		<div class="modal-body" data-ng-hide="isRestore">
+			<form name="login" novalidate data-ng-submit="login.$valid && ok()">
+				<div class="item-component">
+					<div
+						data-focus-styling="{class: 'focus'}"
+
+						class="user-input-element user-input-single-text"
+
+						data-ng-class="{
+							error: (login.userName.$error.required || login.userName.$error.pattern) && (login.userName.$touched || login.$submitted)
+						}"
+					>
+						<input
+							type="text"
+
+							placeholder="E-mail"
+
+							data-ng-model="formData.userName"
+
+							data-ng-required="true"
+
+							name="userName"
+
+							data-popover-trigger="focus"
+
+							data-popover-is-open="login.$submitted && !login.userName.$valid"
+
+							data-uib-popover="Укажите адрес электронной почты"
+
+							data-ng-pattern="regexp.EMAIL"
+
+							data-ng-blur="isExistingEmail()"
+						/>
+					</div>
+				</div>
+
+				<div class="item-component">
+					<div
+						data-focus-styling="{class: 'focus'}"
+
+						class="user-input-element user-input-single-text"
+
+						data-ng-class="{error: login.password.$error.required && (login.password.$touched || login.$submitted) && userIsExisting}"
+					>
+						<input
+							type="password"
+
+							placeholder="Пароль"
+
+							data-ng-model="formData.password"
+
+							data-ng-required="true"
+
+							name="password"
+
+							id="password"
+
+							data-popover-trigger="focus"
+
+							data-popover-is-open="login.$submitted && userIsExisting && !login.password.$valid"
+
+							data-uib-popover="Укажите пароль"
+						/>
+
+						<span class="show-pass" data-ng-click="showpassword($event)">
+							<img data-img-svg src="/img/min/pass_vizible_icon.svg" alt="Показать/скрыть пароль" />
+						</span>
+					</div>
+				</div>
+
+				<div class="item-component">
+					<div data-focus-styling="{class: 'focus'}" >
+						<input
+							type="checkbox"
+
+							placeholder="чужой компьютер"
+
+							data-ng-model="formData.alienComputer"
+
+							data-ng-required="false"
+
+							name="alienComputer"
+
+							id="alienComputer"
+
+							data-popover-trigger="focus"
+
+							data-uib-popover="чужой компьютер"
+						/>
+
+						<label for="alienComputer">чужой компьютер</label>
+					</div>
+				</div>
+
+				<div class="actions actions-login">
+					<input class="btn btn-grey-transparent" type="submit" value="Войти" data-ng-click="findInvalidFields()" />
+				</div>
+
+				<div class="actions actions-restore">
+					<a tabindex="-1"  class="link restore-password-link" href="#" data-ng-click="setRestore($event);">Забыли пароль?</a>
+				</div>
+			</form>
+
+			<p
+				data-ng-if="passwordRestoreError || loginError"
+
+				data-ng-bind="feedBack"
+
+				class="alert alert-danger"
+			></p>
+
+			<div class="helper">
+				<a tabindex="-1"  data-ng-click="isCollapsed = !isCollapsed" class="action">Как завести личный кабинет?</a>
+
+				<div uib-collapse="isCollapsed">
+					<div class="message">
+						Личный кабинет на RiskMarket.ru создаётся автоматически после указания пользователем своего адреса электронной почты для получения страхового полиса. Адрес электронной почты будет являться логином. На e-mail придёт письмо с паролем к созданному личному кабинету, где будут храниться купленные страховки, откуда их всегда можно распечатать.
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal-body restore" data-ng-show="isRestore">
+			<form
+				name="restore"
+
+				novalidate
+
+				data-ng-submit="restore.$valid && restorePassword()"
+
+				data-ng-hide="passwordRestoreIntent && passwordRestoreResultReceived"
+			>
+				<div class="helper">
+					<p>Новый пароль<br/>будет выслан на почту</p>
+
+					<p class="email-value" data-ng-bind="formData.userName"></p>
+				</div>
+
+				<div class="actions">
+					<input data-ng-disabled="restore.$invalid" class="btn btn-grey-transparent" type="submit" value="Восстановить" />
+				</div>
+			</form>
+
+			<p
+				data-ng-if="passwordRestoreIntent && passwordRestoreResultReceived"
+
+				data-ng-bind="feedBack"
+
+				class="alert alert-success"
+			></p>
+		</div>
+	</div></script></div><!-- end ngIf: !isPartnerLoginPage() && !appInFrameMode -->
+
+	      <!-- ngView:  --><div data-ng-view="" class="container-fluid container-wrapper main-content ng-scope"><div class="container-fluid container-wrapper container-wrapper-darker ng-scope"><div class="container-fluid container-content container-content-primary"><div class="actions-sequence centered"><ul class="items actions"><li class="action-sequence-step-wrapper disabled"><a data-dummy-link="" class="item action-sequence-step" href="#" data-sequence-title="Оформление">Оформление</a></li><li class="action-sequence-step-wrapper active"><a data-dummy-link="" class="item action-sequence-step" href="#" data-sequence-title="Оплата">Оплата</a></li><li class="action-sequence-step-wrapper disabled"><a data-dummy-link="" class="item action-sequence-step" href="#" data-sequence-title="Получение">Получение</a></li></ul></div></div></div><div class="container-fluid container-wrapper container-wrapper-darker ng-scope"><div class="container-content container-content-purchase-confirmation"><!-- ngIf: failReasonUndefined --><section data-ng-if="failReasonUndefined" class="ng-scope"><div class="status status-error"></div><h2 class="subject-title ng-binding" data-ng-bind="::orderStatus.TITLE">Ошибка!</h2><h3 class="subject-subtitle-fail ng-binding" data-ng-bind="::orderStatus.FULL_DESCRIPTION">К сожалению, в настоящий момент что-то пошло не так, причина выясняется.</h3></section><!-- end ngIf: failReasonUndefined --><!-- ngIf: !failReasonUndefined --></div></div><div class="container-fluid container-wrapper container-wrapper-darker container-order-fail ng-scope"><div class="container-content"><div class="actions-section actions-sequence actions-navigation row"><div class="main-page-link-btn col-xs-4"><a class="btn btn-green-transparent btn-arrow" href="/">Вернуться на главную</a></div><div class="col-xs-4"><!-- ngIf: failReasonUndefined && !appInFrameMode --><a data-ng-if="failReasonUndefined &amp;&amp; !appInFrameMode" class="btn btn-success btn-lg ng-scope" data-ng-href="/private-office" href="/private-office">Личный кабинет</a><!-- end ngIf: failReasonUndefined && !appInFrameMode --> <!-- ngIf: !failReasonUndefined --></div></div></div></div></div>
+      </div>
+
+      <!-- ngIf: isMainPage() -->
+
+        <!-- ngIf: isMainPage() -->
+
+        <!-- ngIf: !isPartnerLoginPage() && !appInFrameMode --><!-- ngInclude: 'modules/public-footer/partials/public-footer.html' --><footer class="container-fluid container-wrapper ng-scope" data-ng-include="'modules/public-footer/partials/public-footer.html'" data-class-at="{'container-wrapper-darker': 'trip-form, search-results', 'container-wrapper-lighter': 'order-prepare, order-payment, order-done, order-fail'}" data-ng-if="!isPartnerLoginPage() &amp;&amp; !appInFrameMode"><div class="container-fluid container-content ng-scope" data-ng-controller="publicFooterController"><div class="col-xs-2 footer-section-container"><p class="copyright">© 2016, RiskMarket</p></div><div class="col-xs-6 footer-section-container"><a tabindex="-1" data-ng-href="/about" class="footer-link" href="/about">О компании</a> <a tabindex="-1" data-ng-href="/contacts" class="footer-link" href="/contacts">Контакты</a> <a tabindex="-1" data-ng-href="/terms" class="footer-link" data-ng-hide="isPartnerPage()" href="/terms">Пользовательское соглашение</a> <a tabindex="-1" data-ng-href="/partner-login" class="footer-link" target="_blank" href="/partner-login">Для партнеров</a></div><div class="col-xs-4 footer-section-container"><ul class="items partner-items"><li class="partner-item item partner-item-visa"></li><li class="partner-item item partner-item-mastercard"></li><li class="partner-item item partner-item-geotrust"></li></ul></div></div></footer><!-- end ngIf: !isPartnerLoginPage() && !appInFrameMode -->
+
+        <script type="text/javascript" src="js/vendor-logic.min.js"></script>
+        <script type="text/javascript" id="">(function(d,b,a){(b[a]=b[a]||[]).push(function(){try{b.yaCounter34477675=new Ya.Metrika({id:34477675,clickmap:!0,trackLinks:!0,accurateTrackBounce:!0,webvisor:!0})}catch(f){}});var e=d.getElementsByTagName("script")[0],c=d.createElement("script");a=function(){e.parentNode.insertBefore(c,e)};c.type="text/javascript";c.async=!0;c.src="https://mc.yandex.ru/metrika/watch.js";"[object Opera]"==b.opera?d.addEventListener("DOMContentLoaded",a,!1):a()})(document,window,"yandex_metrika_callbacks");</script>
+
+        <noscript>
+            &lt;div&gt;
+                &lt;img src="https://mc.yandex.ru/watch/34477675" style="position:absolute; left:-9999px;" alt="Yandex metrika counter"&gt;
+            &lt;/div&gt;
+        </noscript>
+
+        
+<script type="text/javascript" id="">var _tmr=window._tmr||(window._tmr=[]);_tmr.push({id:"2834046",type:"pageView",start:(new Date).getTime()});(function(b,d,a){if(!b.getElementById(a)){var c=b.createElement("script");c.type="text/javascript";c.async=!0;c.id=a;c.src=("https:"==b.location.protocol?"https:":"http:")+"//top-fwz1.mail.ru/js/code.js";a=function(){var a=b.getElementsByTagName("script")[0];a.parentNode.insertBefore(c,a)};"[object Opera]"==d.opera?b.addEventListener("DOMContentLoaded",a,!1):a()}})(document,window,"topmailru-code");</script><noscript>&lt;div style="position:absolute;left:-10000px;"&gt;
+&lt;img src="//top-fwz1.mail.ru/counter?id=2834046;js=na" style="border:0;" height="1" width="1" alt="Рейтинг@Mail.ru"&gt;
+&lt;/div&gt;</noscript>
+
+
+
+        <script type="text/javascript" src="js/app-logic.min.js"></script>
+    
+</body></html>

@@ -1,0 +1,68 @@
+version: '2'
+
+services:
+  db:
+    hostname: postgres
+#    image: postgres
+    build: 
+      context: .
+      dockerfile: Dockerfile.postgres
+    environment:
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'postgres'
+      POSTGRES_DB: 'riskmarket_dev'
+      PGDATA: '/var/lib/postgresql/data/pgdata'
+    volumes:
+     - '/var/lib/postgresql/data'
+    ports:
+     - '5432:5432'
+    restart: 'always'
+
+  tomcat:
+    hostname: tomcat
+    build:
+      context: .
+      dockerfile: Dockerfile.tomcat
+    restart: 'always'
+    ports:
+    - "8080:8080"
+    volumes:
+    - ./tomcat/conf/context.xml:/usr/local/tomcat/conf/context.xml
+    - ./tomcat/conf/server.xml:/usr/local/tomcat/conf/server.xml
+    - ./tomcat/conf/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
+    - ./tomcat/conf/web.xml:/usr/local/tomcat/conf/web.xml
+    - ./tomcat/lib/postgresql-9.3-1103.jdbc3.jar:/usr/local/tomcat/lib/postgresql-9.3-1103.jdbc3.jar
+    - ./tomcat/artifacts/:/usr/local/tomcat/webapps/
+    - ./tomcat/resources/:/usr/local/tomcat/resources/
+    - ./tomcat/ssl/:/usr/local/tomcat/ssl/
+    environment:
+      JDBC_URL: 'jdbc:postgresql://db:5432/riskmarket_dev'
+      JDBC_USER: 'postgres'
+      JDBC_PASS: 'postgres'
+      JAVA_OPTS: '-Djava.awt.headless=true -Djava.security.egd=file:/dev/./urandom -DshopPassword=rMZ90kJHek86 -DshopId=111711 -Dservice.url.prefix=http://localhost:8080 -DpaymentUrl=https://demomoney.yandex.ru/eshop.xml -Dscid=530907 -Dspring.datasource.url=jdbc:postgresql://db:5432/riskmarket_dev -Danonymous.user.cookie.key=RMr20165RMr20165 -Deureka.environment=dev -Dserver.url=tomcat'
+    links:
+     - 'db'
+    depends_on:
+     - db
+    
+  nginx:
+    hostname: nginx
+    build:
+      context: .
+      dockerfile: Dockerfile.nginx
+    restart: 'always'
+    ports:
+    - "80:80"
+    - "443:443"
+    volumes:
+    - ./nginx/conf.d:/etc/nginx/sites-enabled
+    - ./nginx/conf.d:/etc/nginx/conf.d
+    - ./nginx/ssl:/etc/nginx/ssl
+    - ./nginx/cache.conf:/etc/nginx/cache.conf
+    - ./nginx/proxy.conf:/etc/nginx/proxy.conf
+    - ./nginx/proxy_params:/etc/nginx/proxy_params
+    - ./nginx/rm-proxy.conf:/etc/nginx/rm-proxy.conf
+    - ./nginx/dist:/var/www/riskmarket/dist
+    - ./nginx/dist:/var/www/riskmarket-dev/dist
+    links:
+    - 'tomcat'

@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+
+<html lang="ru" data-ng-app="riskMarket" data-ng-class="{'iframe-app': appInFrameMode}" data-ng-strict-di>
+    <head>
+        <!-- Google Tag Manager -->
+
+        <script>
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+              new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+              'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-MDZDVN');
+        </script>
+
+        <!-- End Google Tag Manager -->
+
+        <meta charset="utf-8"/>
+
+        <meta name="fragment" content="!"/>
+
+        <base href="/"/>
+
+        <title data-ng-bind="pageTitle"></title>
+
+        <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700&amp;subset=latin,cyrillic"
+
+            rel="stylesheet"
+
+            type="text/css"
+        />
+
+        <link rel="icon" href="img/favicon.ico" type="image/x-icon"/>
+
+        <link rel="stylesheet" href="css/vendor-style.min.css" />
+
+        <link rel="stylesheet" href="css/app-style.min.css" />
+    </head>
+
+    <body
+        data-popover-close
+
+        data-ng-class="{
+            'iframe-app': appInFrameMode,
+
+            'iframe-app-ravta': currentPartner.id === 'RAVTA'
+        }"
+    >
+			<!-- Google Tag Manager (noscript) -->
+
+			<noscript>
+			  <iframe
+			    src="https://www.googletagmanager.com/ns.html?id=GTM-MDZDVN"
+
+			    height="0"
+
+			    width="0"
+
+			    style="display:none;visibility:hidden"
+			  ></iframe>
+			</noscript>
+
+			<!-- End Google Tag Manager (noscript) -->
+
+      <div
+        class="background-container"
+
+        data-class-at="{'main-page-background': 'main-page'}"
+
+        data-main-page-bg-random
+      >
+        <div
+            class="container-fluid container-wrapper"
+
+            data-ng-include="'modules/public-navigation/partials/public-navigation.html'"
+
+            data-ng-if="!isPartnerLoginPage() && !appInFrameMode"
+        ></div>
+
+	      <div data-ng-view class="container-fluid container-wrapper main-content"></div>
+      </div>
+
+      <section class="features hidden" data-ng-if="isMainPage()" data-class-at="{visible: 'main-page'}">
+          <h3 class="subject-title">Сервис онлайн страхования</h3>
+
+          <div class="wrapper">
+              <article class="feature">
+                  <figure class="picture-container">
+                      <img class="feature-picture" src="img/min/promo/price-wide-choice.png" alt="Большой выбор, гарантия цены" />
+                  </figure>
+
+                  <h4 class="subject-title">Большой выбор<br/> Гарантия цены</h4>
+
+                  <p class="feature-text">RiskMarket.ru имеет прямые подключения к базам страховых компаний и, отвечая на запросы пользователей, предоставляет множество актуальных вариантов страховых продуктов.</p>
+              </article>
+
+              <article class="feature">
+                  <figure class="picture-container">
+                      <img class="feature-picture" src="img/min/promo/safe-buy.png" alt="Удобная покупка" />
+                  </figure>
+
+                  <h4 class="subject-title">Удобная<br/> покупка</h4>
+
+                  <p class="feature-text">Для поиска подходящей страховки можно воспользоваться системой фильтров и сортировок, а подробное описание условий, рейтинги и отзывы клиентов помогут сделать окончательный выбор.</p>
+              </article>
+
+              <article class="feature">
+                  <figure class="picture-container">
+                      <img class="feature-picture" src="img/min/promo/policy-storage.png" alt="Хранение полисов" />
+                  </figure>
+
+                  <h4 class="subject-title">Хранение<br/> полисов</h4>
+
+                  <p class="feature-text">На сервисе для пользователя создается личный кабинет, в котором сохраняется история покупок, и откуда всегда можно распечатать необходимую страховку.</p>
+              </article>
+          </div>
+
+          <a tabindex="-1" class="btn btn-success" data-ng-href="{{ routes.ABOUT }}">Узнать больше</a>
+      </section>
+
+        <article class="promo-slogan hidden" data-ng-if="isMainPage()" data-class-at="{visible: 'main-page'}">
+            <h3 class="subject-title">RiskMarket.ru дает возможность на одном сайте рассчитать, выбрать и купить страховки на разные случаи жизни прямо у ведущих страховых компаний.</h3>
+        </article>
+
+        <footer
+                class="container-fluid container-wrapper container-wrapper-darker"
+
+                data-ng-include="'modules/public-footer/partials/public-footer.html'"
+
+                data-class-at="{'container-wrapper-darker': 'trip-form, search-results', 'container-wrapper-lighter': 'order-prepare, order-payment, order-done, order-fail'}"
+
+                data-ng-if="!isPartnerLoginPage() && !appInFrameMode"
+        ></footer>
+
+        <script type="text/javascript" src="js/vendor-logic.min.js"></script>
+
+        <script type="text/javascript" src="js/app-logic.min.js"></script>
+    </body>
+</html>
